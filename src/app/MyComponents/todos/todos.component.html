@@ -1,0 +1,11 @@
+<div class="container">
+    <h2 class="d-flex justify-content-center">This is Todo-List</h2>
+        <app-add-todo (todoAdd)="addtodo($event)"></app-add-todo>
+        <h2 class="mt-5">Your Todos</h2>
+        <div *ngIf="this.todos.length===0; else elseBlock">No Todos to display. Please Add your Todos</div>
+        <ng-template #elseBlock>
+            <div *ngFor="let todo of todos">
+                <app-todo-item [todo]="todo" (todoDelete)="deleteTodo($event)"></app-todo-item>
+            </div>
+        </ng-template>
+</div>  
